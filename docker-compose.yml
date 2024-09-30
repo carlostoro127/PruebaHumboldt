@@ -1,0 +1,9 @@
+version: '3'  # Define la versión de docker-compose que estás utilizando
+
+services:  # Aquí se definen los servicios (contenedores) que se van a crear
+  web:  # Nombre del servicio, en este caso "web"
+    build: .  # Indica que debe construir la imagen desde el directorio actual, donde está el Dockerfile
+    ports:
+      - "8080:80"  # Mapea el puerto 8080 del host (tu máquina) al puerto 80 del contenedor (donde Apache está escuchando)
+    volumes:
+      - ./index.php:/var/www/html/index.php  # Monta el archivo index.php de tu máquina local en la carpeta /var/www/html/ dentro del contenedor
